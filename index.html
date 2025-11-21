@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Projetos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="cabecalho-principal">
+            <a href="#" class="link-de-retorno"><i class="fas fa-arrow-left"></i> Voltar para Projetos</a>
+            <h1>Website Redesign</h1>
+            <div class="actions-do-cabecalho">
+                <button class="btn btn-secondary"><i class="fas fa-edit"></i> Editar Projeto</button>
+                <button class="btn btn-primary"><i class="fas fa-plus"></i> Criar Issue</button>
+            </div>
+        </header>
+
+        <p class="descriçao-do-projeto">Renovação completa do website corporativo</p>
+
+        <div class="lista-issue">
+            <div class="card-do-issue">
+                <div class="cabecalho-issue">
+                    <h2>Criar nova homepage</h2>
+                    <span class="status status-em-progresso">Em Progresso</span>
+                    <div class="actions-do-card">
+                        <button class="icon-btn"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+                <p class="descriçao-do-issue">Desenvolver a nova página inicial com design moderno</p>
+                <div class="issue-meta">
+                    <span class="tag tag-design">design</span>
+                    <span class="ultimo-update">Atualizada há 10 meses</span>
+                </div>
+            </div>
+
+            <div class="card-do-issue">
+                <div class="cabecalho-issue">
+                    <h2>Otimizar Imagens</h2>
+                    <span class="status status-open">Aberta</span>
+                    <div class="actions-do-card">
+                        <button class="icon-btn"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+                <p class="descriçao-do-issue">Comprimir e otimizar todas as imagens do site</p>
+                <div class="issue-meta">
+                    <span class="tag tag-performance">performance</span>
+                    <span class="ultimo-update">Atualizada há 10 meses</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="edit-issue" class="modal">
+            <div class="modal-content">
+                <span class="botao-fechar">&times;</span>
+                <h2>Editar Issue</h2>
+                <div class="grupo">
+                    <label for="titulo-issue">Título da Issue</label>
+                    <input type="text" id="titulo-issue" value="Criar nova homepage" class="campo-input">
+                </div>
+                <div class="grupo">
+                    <label for="descriçao-do-issue">descrição do issue</label>
+                    <textarea id="descriçao-do-issue" class="campo-input">Desenvolver a nova página inicial com design moderno</textarea>
+                </div>
+                <div class="grupo">
+                    <label for="status-issue">Status</label>
+                    <select id="status-issue" class="campo-input">
+                        <option value="emProgresso">Em Progresso</option>
+                        <option value="aberto">Aberta</option>
+                        <option value="fechado">Fechada</option>
+                    </select>
+                </div>
+                 <div class="grupo">
+                    <label for="prioridade-issue">Prioridade</label>
+                    <select id="prioridade-issue" class="campo-input">
+                        <option value="alta">Alta</option>
+                        <option value="media">Média</option>
+                        <option value="baixa">Baixa</option>
+                    </select>
+                </div>
+                <div class="grupo">
+                    <label for="issueTags">Tags (separadas por vírgula)</label>
+                    <input type="text" id="issueTags" value="design" class="campo-input">
+                </div>
+                 <div class="grupo">
+                    <label for="projeto-issue">Projeto</label>
+                    <input type="text" id="projeto-issue" value="Website Redesign" class="campo-input" readonly>
+                </div>
+                <div class="actions-do-modal">
+                    <button class="btn btn-secondary">Cancelar</button>
+                    <button class="btn btn-primary">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

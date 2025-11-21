@@ -1,0 +1,332 @@
+/* variáveis pra cores */
+:root {
+    --bg-dark: #121212;
+    --card-bg: #1e1e1e;
+    --text-light: #e0e0e0;
+    --text-medium: #a0a0a0;
+    --accent-blue: #007bff; /* azul pros botões primários */
+    --accent-green: #28a745; /* verde pro status 'em progresso' */
+    --accent-yellow: #ffc107; /* amarelo pro status 'Aberta' */
+    --modal-bg: rgba(0, 0, 0, 0.7); /* fundo escuro pro modal */
+    --border-glow: #007bff; /* efeito de brilho da borda */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.cabecalho-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Para responsividade básica */
+}
+
+.cabecalho-principal h1 {
+    font-size: 2em;
+    margin: 0;
+    flex-grow: 1; /* Permite que o título ocupe o espaço */
+}
+
+.link-de-retorno {
+    color: var(--text-medium);
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.link-de-retorno i {
+    margin-right: 5px;
+}
+
+.actions-do-cabecalho {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+.descriçao-do-projeto {
+    color: var(--text-medium);
+    margin-top: -10px; /* Ajusta a posição abaixo do título */
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+
+/* só os botões */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Um azul um pouco mais escuro */
+}
+
+.btn-secondary {
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    border: 1px solid var(--text-medium);
+}
+
+.btn-secondary:hover {
+    background-color: #333; /* Um cinza um pouco mais claro */
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-medium);
+    cursor: pointer;
+    font-size: 1em;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.icon-btn:hover {
+    color: var(--text-light);
+}
+
+/* cards do issue */
+.lista-issue {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os cards */
+}
+
+.card-do-issue {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent; /* Para o efeito de foco */
+    transition: border-color 0.2s ease;
+}
+
+.card-do-issue:hover {
+    border-color: var(--text-medium); /* Borda sutil ao passar o mouse */
+}
+
+.cabecalho-issue {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.cabecalho-issue h2 {
+    font-size: 1.2em;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-left: 15px;
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+.status-em-progresso {
+    background-color: var(--accent-green);
+    color: white;
+}
+
+.status-open {
+    background-color: var(--accent-yellow);
+    color: #333; /* Texto escuro para contraste */
+}
+
+.actions-do-card {
+    margin-left: auto; /* Empurra para a direita */
+    display: flex;
+    gap: 5px;
+}
+
+.descriçao-do-issue {
+    color: var(--text-medium);
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.issue-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8em;
+    color: var(--text-medium);
+}
+
+.tag {
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    background-color: #333; /* Cor de fundo para tags genéricas */
+    color: var(--text-light);
+}
+
+
+/* modal (pop-up) */
+.modal {
+    /* Por padrão, escondido. JavaScript irá mostrar */
+    display: none; 
+    position: fixed; /* Fixa na tela */
+    z-index: 1; /* Acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Rolagem se o conteúdo for muito grande */
+    background-color: var(--modal-bg); /* Fundo escuro semi-transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: auto; /* Centraliza vertical e horizontalmente */
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    position: relative;
+    border: 1px solid var(--border-glow); /* Borda com brilho */
+    animation: fadeIn 0.3s ease-out; /* Animação de entrada */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.botao-fechar {
+    color: var(--text-medium);
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.botao-fechar:hover,
+.botao-fechar:focus {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: var(--text-light);
+}
+
+/* Formulário dentro do Modal */
+.grupo {
+    margin-bottom: 15px;
+}
+
+.grupo label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: var(--text-medium);
+}
+
+.campo-input {
+    width: calc(100% - 20px); /* 100% menos o padding */
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: var(--text-light);
+    font-size: 1em;
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo-input:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Brilho ao focar */
+}
+
+textarea.campo-input {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 80px;
+}
+
+.actions-do-modal {
+    display: flex;
+    justify-content: flex-end; /* Alinha botões à direita */
+    gap: 10px;
+    margin-top: 25px;
+}
+
+/* Para tornar o modal visível com JS, a classe 'show-modal' será adicionada */
+.modal.show-modal {
+    display: flex; /* Altera para flex para centralizar */
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+    .cabecalho-principal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .actions-do-cabecalho {
+        width: 100%;
+        justify-content: stretch;
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .cabecalho-issue {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .status {
+        margin-left: 0; /* Remove margem extra */
+    }
+    .actions-do-card {
+        margin-left: 0; /* Remove auto-margin */
+        width: 100%;
+        justify-content: flex-end; /* Alinha ícones à direita da card */
+    }
+}
